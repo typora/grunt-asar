@@ -1,4 +1,3 @@
-@@ -1,54 +0,0 @@
 /*
  * grunt-asar
  * https://github.com/bwin/grunt-asar
