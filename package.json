@@ -1,7 +1,7 @@
 {
   "name": "grunt-asar",
   "description": "Grunt plugin to generate atom-shell asar archives.",
-  "version": "0.8.3",
+  "version": "3.0.0",
   "homepage": "https://github.com/bwin/grunt-asar",
   "author": {
     "name": "Benjamin Winkler (bwin)"
