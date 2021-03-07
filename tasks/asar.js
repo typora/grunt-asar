@@ -18,7 +18,7 @@ var mkdirp = require('mkdirp');
 
 var glob = require('glob');
 
-function async generateAsarArchive(srcPath, destFile, options) {
+async function generateAsarArchive(srcPath, destFile, options) {
   console.log("from " + srcPath + " to " + destFile);
   return await asar.createPackageWithOptions(srcPath, destFile, options || {});
 }
