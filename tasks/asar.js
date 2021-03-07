@@ -18,9 +18,9 @@ var mkdirp = require('mkdirp');
 
 var glob = require('glob');
 
-function generateAsarArchive(srcPath, destFile, cb) {
+function async generateAsarArchive(srcPath, destFile, options) {
   console.log("from " + srcPath + " to " + destFile);
-  asar.createPackage(srcPath, destFile, cb);
+  return await asar.createPackageWithOptions(srcPath, destFile, options || {});
 }
 
 module.exports = function(grunt) {
@@ -29,6 +29,8 @@ module.exports = function(grunt) {
     var options = this.options({
     //  bare: false,
     });
+    
+    console.log(options);
 
     var target = this.target;
     var done = this.async();
@@ -48,7 +50,7 @@ module.exports = function(grunt) {
       // to create the dir if necessary we're creating an empty file.
       grunt.file.write(dest, '');
       
-      generateAsarArchive(f.src[0], dest, function(){eachDone(f);});
+      generateAsarArchive(f.src[0], dest, options).then(function(){eachDone(f);})
     });
   });
 };
